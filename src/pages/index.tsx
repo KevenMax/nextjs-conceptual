@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next'
+
 import * as Styled from '../styles/pages/Home'
 
 interface IProduct {
@@ -10,7 +11,7 @@ interface HomeProps {
   recommendedProducts: IProduct[];
 }
 
-export default function Home({recommendedProducts}: HomeProps) {  
+function Home({recommendedProducts}: HomeProps) {  
   const handleSum = async () => {
     const {sum} = (await import('../lib/math')).default
     alert(sum(3,5));
@@ -34,9 +35,11 @@ export default function Home({recommendedProducts}: HomeProps) {
   )
 }
 
+export default Home;
+
 export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
   const response = await fetch(`${process.env.API_URL}/recommended`)
-  const recommendedProducts = await response.json()
+  const recommendedProducts: IProduct[] = await response.json()
 
   return {
     props: {
