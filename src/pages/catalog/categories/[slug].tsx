@@ -41,7 +41,7 @@ export default function Product({products}: CategoryProps) {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const response = await fetch(`http://localhost:3002/categories`)
-  const categories = await response.json()
+  const categories: ICategory[] = await response.json()
 
   const paths = categories.map((category: ICategory) => {
     return {
@@ -59,7 +59,7 @@ export const getStaticProps: GetStaticProps<CategoryProps> = async (context) => 
   const { slug } = context.params;
 
   const response = await fetch(`http://localhost:3002/products?category_id=${slug}`)
-  const products = await response.json()
+  const products: IProduct[] = await response.json()
 
   return {
     props: {
