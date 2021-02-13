@@ -11,6 +11,11 @@ interface HomeProps {
 }
 
 export default function Home({recommendedProducts}: HomeProps) {  
+  const handleSum = async () => {
+    const {sum} = (await import('../lib/math')).default
+    alert(sum(3,5));
+  }
+
   return (
       <Styled.Section>
         <Styled.Title>Hello World!</Styled.Title>
@@ -24,6 +29,7 @@ export default function Home({recommendedProducts}: HomeProps) {
             )
           })}
         </Styled.List>
+        <button onClick={handleSum}>Sum!</button>
       </Styled.Section>
   )
 }
