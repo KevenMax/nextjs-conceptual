@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next'
 
+import SEO from '@/components/SEO'
 import * as Styled from '@/styles/pages/Home'
-
 interface IProduct {
   id: string;
   title: string;
@@ -18,6 +18,8 @@ function Home({recommendedProducts}: HomeProps) {
   }
 
   return (
+    <div>
+      <SEO title='DevCommerce, your best e-commerce!' shouldExcludeTitleSufixx  image='boost.png'/>   
       <Styled.Section>
         <Styled.Title>Hello World!</Styled.Title>
 
@@ -32,6 +34,8 @@ function Home({recommendedProducts}: HomeProps) {
         </Styled.List>
         <button onClick={handleSum}>Sum!</button>
       </Styled.Section>
+
+    </div>
   )
 }
 
