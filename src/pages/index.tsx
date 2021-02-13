@@ -1,7 +1,9 @@
+import * as Styled from '../styles/pages/Home';
+
 export default function Home() {
   return (
     <div>
-      <h1>Hello World!</h1>
+      <Styled.Title>Hello World!</Styled.Title>
     </div>
   )
 }
