@@ -30,7 +30,7 @@ export default function Product({products, category}: CategoryProps) {
         {products.map((product) => {
           return (
             <li key={product.id}>
-              <Link href={`catalog/products/${product.uid}`}>
+              <Link href={`/catalog/products/${product.uid}`}>
               <a>
                 {PrismicDOM.RichText.asText(product.data.title)} 
               </a>
